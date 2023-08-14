@@ -10,7 +10,7 @@ func main() {
 	var x, z int
 	var y float64
 
-	fmt.Println("Por favor informe dois valores inteiros: ")
+	fmt.Println("Informe dois valores inteiros: ")
 	fmt.Scanln(&x, &z)
 	fmt.Println(x)
 	fmt.Println(z)
