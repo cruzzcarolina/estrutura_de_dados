@@ -45,7 +45,7 @@ func main() {
 	contato.AlterarEmail("carolzinha@gmail.com")
 	fmt.Println(contato)
 
-	arrayContatos := make([]Contato, 5)
+	arrayContatos := ([]Contato, 5)
 
 	var nome, email string
 	fmt.Print("nome: ")
