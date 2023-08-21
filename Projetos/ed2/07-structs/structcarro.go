@@ -6,11 +6,16 @@ type Carro struct {
 	Modelo     string
 	Velocidade int
 	Cor        string
-	Ligado     bool
+	EstaLigado bool
 }
 
 func (c *Carro) Ligar() {
-	c.Ligado = !c.Ligado
+	c.EstaLigado = true
+}
+
+func (c *Carro) Desligar() {
+	c.EstaLigado = true
+	c.Velocidade = 0
 }
 
 func (c *Carro) Acelerar(valor int) {
@@ -19,15 +24,18 @@ func (c *Carro) Acelerar(valor int) {
 
 func main() {
 	carro := Carro{
-		Modelo:     "Defender",
+		Modelo:     "HB20",
 		Velocidade: 180,
-		Cor:        "Preto fosco",
-		Ligado:     true,
+		Cor:        "Cinza",
+		EstaLigado: true,
 	}
 
-	fmt.Println(carro)
 	carro.Ligar()
 	fmt.Println(carro)
-	carro.Acelerar(10)
+
+	carro.Acelerar(50)
+	fmt.Println(carro)
+
+	carro.Desligar()
 	fmt.Println(carro)
 }

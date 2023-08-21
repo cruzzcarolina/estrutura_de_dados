@@ -11,6 +11,10 @@ type Pessoa struct {
 	Altura float64
 }
 
+func (p *Pessoa) AvancaIdade() {
+	p.Idade++
+}
+
 type Ponto struct {
 	X, Y int
 }
@@ -29,26 +33,25 @@ func (c Circulo) Area() float64 {
 }
 
 func main() {
-	pessoa1 := Pessoa{
+	p := Pessoa{
 		Nome:   "Alice",
 		Idade:  25,
 		Altura: 1.65,
 	}
 
-	fmt.Println(pessoa1)
-	fmt.Println(pessoa1.Nome)
-	fmt.Println(pessoa1.Altura)
+	fmt.Println(p)
+	fmt.Println(p.Nome)
+	fmt.Println(p.Altura)
 
-	retangulo := Retangulo{
+	r := Retangulo{
 		Ponto:   Ponto{X: 1, Y: 2},
 		Largura: 60,
 		Altura:  30,
 	}
-	fmt.Println(retangulo)
+	fmt.Println(r)
 
 	circ := Circulo{
 		Raio: 1.5,
 	}
-
 	fmt.Println(circ.Area())
 }
