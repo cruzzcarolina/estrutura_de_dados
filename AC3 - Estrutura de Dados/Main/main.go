@@ -17,7 +17,7 @@ func main() {
 		switch opcao {
 		case "1":
 			fmt.Print("escreva seu nome: ")
-			nome, _ = leitor.ReadString('\n')
+			fmt.Scanln(&nome)
 
 			fmt.Print("escreva seu email: ")
 			fmt.Scanln(&email)
@@ -37,7 +37,7 @@ func main() {
 			fmt.Println("contatos:")
 			for i, c := range contatos {
 				if c != (contato.Contato{}) {
-					fmt.Printf("Nome: %s, Email: %s\n", i, c.Nome, c.Email)
+					fmt.println("nome: %s, email: %s", i, c.Nome, c.Email)
 				}
 			}
 		default:
