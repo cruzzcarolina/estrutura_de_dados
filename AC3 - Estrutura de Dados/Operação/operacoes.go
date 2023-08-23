@@ -13,7 +13,7 @@ func AdicionaContato(c *contato.Contato, a *[5]contato.Contato) {
 
 func ExcluiContato(a *[5]contato.Contato) {
 	if a[0] == (contato.Contato{}) {
-		fmt.Println("Lista de contatos vazia!")
+		fmt.Println("lista de contatos vazia!")
 		return
 	}
 
