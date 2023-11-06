@@ -13,57 +13,55 @@ type Arvore struct {
 }
 
 func main() {
-
 	arvore := Arvore{}
-	arvore.Inserir(50)
-	arvore.Inserir(30)
-	arvore.Inserir(70)
-	arvore.Inserir(20)
-	arvore.Inserir(40)
-	arvore.Inserir(60)
-	arvore.Inserir(80)
-
-	fmt.Println(arvore.Buscar(30))
-	fmt.Println(arvore.Buscar(45))
+	arvore.inserir(50)
+	arvore.inserir(30)
+	arvore.inserir(70)
+	arvore.inserir(20)
+	arvore.inserir(40)
+	arvore.inserir(60)
+	arvore.inserir(80)
+	fmt.Println(arvore.buscar(30))
+	fmt.Println(arvore.buscar(45))
 }
 
-func (a *Arvore) Inserir(chave int) {
+func (a *Arvore) inserir(chave int) {
 	if a.Raiz == nil {
 		a.Raiz = &Node{Chave: chave}
 	} else {
-		a.inserir(a.Raiz, chave)
+		a.inserindo(a.Raiz, chave)
 	}
 }
 
-func (a *Arvore) inserir(no *Node, chave int) {
+func (a *Arvore) inserindo(no *Node, chave int) {
 	if chave < no.Chave {
 		if no.Esquerda == nil {
 			no.Esquerda = &Node{Chave: chave}
 		} else {
-			a.inserir(no.Esquerda, chave)
+			a.inserindo(no.Esquerda, chave)
 		}
 	} else if chave > no.Chave {
 		if no.Direita == nil {
 			no.Direita = &Node{Chave: chave}
 		} else {
-			a.inserir(no.Direita, chave)
+			a.inserindo(no.Direita, chave)
 		}
 	}
 }
 
-func (a *Arvore) Buscar(chave int) bool {
-	return a.buscarChaveRec(a.Raiz, chave)
+func (a *Arvore) buscar(chave int) bool {
+	return a.buscando(a.Raiz, chave)
 }
 
-func (a *Arvore) buscarChaveRec(no *Node, chave int) bool {
+func (a *Arvore) buscando(no *Node, chave int) bool {
 	if no == nil {
 		return false
 	}
 	if chave == no.Chave {
 		return true
 	} else if chave < no.Chave {
-		return a.buscarChaveRec(no.Esquerda, chave)
+		return a.buscando(no.Esquerda, chave)
 	} else {
-		return a.buscarChaveRec(no.Direita, chave)
+		return a.buscando(no.Direita, chave)
 	}
 }
